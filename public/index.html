@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f6f0">
+    <meta name="description" content="A thoughtful learning studio for your next big question.">
+    <title>EduGenie — Make it click</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="EduGenie home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span>edu<span class="brand-accent">genie</span></span>
+        </a>
+        <div class="topbar-center"><span class="live-dot" aria-hidden="true"></span> YOUR LEARNING STUDIO</div>
+        <div class="topbar-actions">
+          <span class="engine-label"><span class="engine-star" aria-hidden="true">✳</span> GEMINI 3.8 FLASH</span>
+          <button class="test-connection" id="test-connection" type="button" title="Send a short test request to check your Gemini key and model">Test Gemini</button>
+          <button class="icon-button new-session" id="new-session" type="button" title="Start a new session" aria-label="Start a new session">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <aside class="left-rail" aria-label="Study navigation">
+          <div class="rail-section">
+            <p class="eyebrow">YOUR DESK</p>
+            <button class="nav-row nav-current" type="button" aria-current="page">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+              <span>Study space</span>
+              <span class="nav-pip" aria-hidden="true"></span>
+            </button>
+            <button class="nav-row" id="sidebar-new-session" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              <span>New session</span>
+            </button>
+          </div>
+
+          <div class="rail-section subjects-section">
+            <div class="section-heading"><p class="eyebrow">PICK A SUBJECT</p><span class="tiny-count">04</span></div>
+            <nav class="subject-list" aria-label="Subjects">
+              <button class="subject-row selected" type="button" data-subject="Mathematics" data-note="Patterns are everywhere"><span class="subject-dot dot-coral"></span>Mathematics<span class="subject-arrow" aria-hidden="true">↗</span></button>
+              <button class="subject-row" type="button" data-subject="Biology" data-note="Life, at every scale"><span class="subject-dot dot-green"></span>Biology<span class="subject-arrow" aria-hidden="true">↗</span></button>
+              <button class="subject-row" type="button" data-subject="History" data-note="The past has a point of view"><span class="subject-dot dot-blue"></span>History<span class="subject-arrow" aria-hidden="true">↗</span></button>
+              <button class="subject-row" type="button" data-subject="Writing" data-note="Find the words for it"><span class="subject-dot dot-yellow"></span>Writing<span class="subject-arrow" aria-hidden="true">↗</span></button>
+            </nav>
+          </div>
+
+          <div class="rail-bottom">
+            <div class="streak-mark" aria-hidden="true">✳</div>
+            <div><p class="streak-title">A good day to learn</p><p class="streak-copy">One question is a start.</p></div>
+          </div>
+        </aside>
+
+        <main class="study-panel">
+          <div class="study-heading">
+            <div class="breadcrumb"><span>STUDY SPACE</span><span class="crumb-slash">/</span><span id="breadcrumb-subject">MATHEMATICS</span></div>
+            <div class="mode-picker" role="group" aria-label="Choose learning mode">
+              <button class="mode-button active" type="button" data-mode="guide" aria-pressed="true">Explain</button>
+              <button class="mode-button" type="button" data-mode="socratic" aria-pressed="false">Explore</button>
+              <button class="mode-button" type="button" data-mode="quiz" aria-pressed="false">Quiz</button>
+            </div>
+          </div>
+
+          <section class="conversation" id="conversation" aria-label="Learning conversation" aria-live="polite">
+            <div class="welcome" id="welcome">
+              <div class="welcome-kicker"><span class="kicker-line"></span><span id="welcome-subject-note">PATTERNS ARE EVERYWHERE</span></div>
+              <h1>What are you<br>curious about<span class="question-mark">?</span></h1>
+              <p class="welcome-copy">Bring a half-formed thought, a tricky idea, or a question you keep coming back to.</p>
+              <div class="starter-grid" aria-label="Try a question">
+                <button class="starter-card" type="button" data-prompt="Explain fractions to me using a real-world example.">
+                  <span class="starter-icon icon-fraction" aria-hidden="true">½</span><span><span class="starter-label">Make an idea click</span><span class="starter-text">Explain fractions with pizza</span></span><span class="starter-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button class="starter-card" type="button" data-prompt="Quiz me on the basics of algebra. Ask one question at a time.">
+                  <span class="starter-icon icon-quiz" aria-hidden="true">?</span><span><span class="starter-label">Check what I know</span><span class="starter-text">A quick algebra quiz</span></span><span class="starter-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button class="starter-card" type="button" data-prompt="Help me understand why negative numbers multiplied together make a positive. Start with a hint.">
+                  <span class="starter-icon icon-idea" aria-hidden="true">↗</span><span><span class="starter-label">Follow a curiosity</span><span class="starter-text">Why does a negative times a negative make a positive?</span></span><span class="starter-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button class="starter-card" type="button" data-prompt="Help me make a one-week plan to get comfortable with geometry.">
+                  <span class="starter-icon icon-plan" aria-hidden="true">7</span><span><span class="starter-label">Make a little plan</span><span class="starter-text">Seven days of geometry</span></span><span class="starter-arrow" aria-hidden="true">↗</span>
+                </button>
+              </div>
+            </div>
+            <div class="messages" id="messages"></div>
+          </section>
+
+          <div class="composer-wrap">
+            <form class="composer" id="chat-form">
+              <label class="visually-hidden" for="message-input">Your question</label>
+              <textarea id="message-input" rows="1" maxlength="6000" placeholder="Ask anything you want to understand..."></textarea>
+              <div class="composer-bottom">
+                <div class="composer-context"><span class="context-dot" aria-hidden="true"></span><span id="composer-mode">Patient explanations, real examples</span></div>
+                <div class="composer-actions"><span class="key-hint">↵ <span>to send</span></span><button class="send-button" id="send-button" type="submit" aria-label="Send question" title="Send question"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></div>
+              </div>
+            </form>
+            <p class="composer-footnote">A learning partner, not an answer key. Stay curious.</p>
+          </div>
+        </main>
+
+        <aside class="right-rail" aria-label="Session details">
+          <div class="right-rail-header"><p class="eyebrow">YOUR SESSION</p><button id="clear-session" class="text-button" type="button">Clear</button></div>
+          <div class="focus-block">
+            <span class="focus-label">TODAY'S FOCUS</span>
+            <h2 id="focus-subject">Mathematics</h2>
+            <p id="focus-note">Patterns are everywhere</p>
+            <div class="focus-rule"><span></span></div>
+          </div>
+          <div class="path-block">
+            <p class="eyebrow">A GOOD PATH</p>
+            <ol class="path-list" id="path-list">
+              <li class="path-item current"><span class="path-number">01</span><span><strong>Start with a question</strong><small>Follow what feels interesting</small></span></li>
+              <li class="path-item"><span class="path-number">02</span><span><strong>Work through one idea</strong><small>Examples make it stick</small></span></li>
+              <li class="path-item"><span class="path-number">03</span><span><strong>See what you remember</strong><small>Try it in your own words</small></span></li>
+            </ol>
+          </div>
+          <div class="margin-note"><span class="note-star" aria-hidden="true">✳</span><p>Small steps count.<br><em>So does asking why.</em></p></div>
+          <div class="right-rail-footer"><span class="privacy-dot" aria-hidden="true"></span><span>NOT SAVED · PROMPTS SENT TO GEMINI</span></div>
+        </aside>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
